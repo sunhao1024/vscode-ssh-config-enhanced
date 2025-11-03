@@ -51,11 +51,11 @@ export class SSHFormatProvider implements DocumentFormattingEditProvider {
   /**
    * Formats the SSH configuration text.
    * @param text - The SSH configuration text to be formatted.
-   * @param indentSize - The size of the indentation.
+   * @param indentSize - Number of tab characters to use for indentation (tabs will be repeated indentSize times).
    * @returns The formatted SSH configuration text.
    */
   private formatSshConfig(text: string, indentSize: number): string {
-    const customIndentation = ' '.repeat(indentSize)
+    const customIndentation = '\t'.repeat(indentSize)
     let isHostBlock = false
     let isFirstLine = true
     return text.split('\n').map((line, index, lines) => {
